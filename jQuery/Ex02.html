@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>jQuery 2</title>
+	</head>
+	<body>
+		<h1>즐거운 기획발표</h1>
+		<h1>즐거운 수요일</h1>
+
+		<script src="./jquery-3.7.1.min.js"></script>
+
+		<script>
+			// h1 내용을 '힘들지만 파이팅' (jQuery 사용)
+			// $('h1').html('힘들지만 파이팅') // html 구조까지 바꿈
+
+			const h1 = $('h1');
+			// $('h1').text('힘들지만 파이팅'); // .text() --> innerText
+			//h1.text('힘들지만 파이팅')
+
+			// .html() --> innerHTML
+			//$('h1').html('<a href="#">힘들지만 파이팅!</a>😱')
+			// h1.html('<a href="#">힘들지만 파이팅!</a>😱')
+
+			// 글씨 색상을 빨강, 글씨 배경색 검정
+			h1.css({ color: '#F2EA02', 'background-color': 'black' });
+
+			function h1Click() {
+				h1.css('color', '#4deeea');
+			}
+
+			// jQuery 객체에 기능 달아주기
+			// .on() -> .addEventListener()
+			// h1.on('click', function(){
+			//   h1.css('color', '#4deeea')
+			// })
+
+			// jQuery 여러 기능 한 번에 작성 ㄱㅊ
+			h1.on({
+				click: function () {
+          // this --> 이벤트 실행 주체(이벤트를 발생시킨 태그)
+					$(this).css('color', '#4deeea');
+				},
+				mouseover: function () {
+					$(this).css({ color: '#f000ff', 'background-color': '#ffe700' });
+				},
+				mouseout: function () {
+					$(this).css({ color: '#F2EA02', 'background-color': 'black' });
+				},
+			});
+		</script>
+	</body>
+</html>

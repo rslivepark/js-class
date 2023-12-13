@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DOM 5 - 실습 예제</title>
+	</head>
+	<body>
+		<h1 id="number">0</h1>
+		<button onclick="clickPlus()">+1 증가</button>
+		<button onclick="clickMinus()">-1 감소</button>
+
+		<script>
+			const h1 = document.getElementById('number'); // h1에 접근하는 주소값 저장
+			let num = 0;
+
+			function clickPlus() {
+        //let currentNum = h1.innterText;
+				num++;
+				h1.innerText = num;
+				
+			}
+			function clickMinus() {
+				if (num > 0) {
+          //let currentNum = h1.innterText;
+					num--;
+					h1.innerText = num;
+					
+				}
+			}
+		</script>
+	</body>
+</html>

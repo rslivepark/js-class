@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DOM 7 실습예제</title>
+		<style>
+			img {
+				width: auto;
+				height: 350px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <button onclick="imgClick()">이미지 변경</button> -->
+		<button onclick="prevBtn()">이전 이미지</button>
+		<button onclick="nextBtn()">다음 이미지</button>	
+    <p></p>
+    <img id="img" src="./freedom.png" />
+
+		<script>
+			const img = document.getElementById('img');
+
+			// let src = './landscape.png';
+
+			// function imgClick() {
+			// 	img.src = src;
+			// }
+
+			// function imgClick2() {
+			// 	img.setAttribute('src', './landscape.png')
+			// }
+
+			/* img1, img2, img3를 번갈아가면서 보여주기
+			   이전 버튼 클릭시 이전 이미지가 나오게끔
+			   다음 버튼 클릭시 다음 이미지가 나오게끔 */
+
+      // 1. 이미지 경로 배열로 만들어주기
+			const imgArr = ['./freedom.png', './land1.png', './land2.png'];
+
+      // 2. 현재 이미지 위치
+			let imgIndex = 0;
+
+			function prevBtn() {
+				imgIndex--;
+				
+				if (imgIndex < 0) {
+					imgIndex = imgArr.length - 1; // 마지막 인덱스 값으로 만들어주기
+				}
+				img.src = imgArr[imgIndex];
+			}
+
+			function nextBtn() {
+				imgIndex++;		
+
+				if (imgIndex > imgArr.length - 1) { // imgIndex >= imgArr.length
+					imgIndex = 0;
+				}
+				img.src = imgArr[imgIndex];
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>5. 비교연산자</title>
+	</head>
+	<body>
+		<script>
+			let age = 20;
+
+			/*
+        == 동등연산자 : 타입은 무시하고 값만 비교한다, 자동으로 숫자형 변환
+        === 일치연산자 : 타입과 값 둘 다 비교한다
+        > < >= <= 값 크기 비교시에는 동등, 일치의 개념이 없다
+        */
+			if (age >= '20') {
+				console.log('성인입니다.');
+			} else {
+				console.log('성인이 아닙니다');
+			}
+
+			console.log('=========================');
+
+			let java = parseInt(prompt('자바 점수 입력'));
+			let android = parseInt(prompt('안드로이드 점수 입력'));
+			let web = parseInt(prompt('WEB 점수 입력'));
+
+			let avg = parseFloat((java + android + web) / 3).toFixed(2);
+			let grade;
+
+			if (avg >= 90) {
+				grade = 'A';
+			} else if (avg >= 80) {
+				grade = 'B';
+			} else if (avg >= 70) {
+				grade = 'C';
+			} else {
+				grade = 'F';
+			}
+			console.log(`평균은 ${avg}이고 학점은 ${grade}입니다.`);
+
+			console.log('==========Switch=========');
+			switch (true) {
+				case avg >= 90:
+					grade = 'A';
+					break;
+				case avg >= 80:
+					grade = 'B';
+					break;
+				case avg >= 70:
+					grade = 'C';
+					break;
+				default:
+					grade = 'F';
+					break;
+			}
+			console.log(`평균은 ${avg}이고 학점은 ${grade}입니다.`);
+		</script>
+	</body>
+</html>

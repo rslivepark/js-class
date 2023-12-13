@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>this 사용해보기</h1>
+		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
+		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
+		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
+		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
+
+		<script src="./jquery-3.7.1.min.js"></script>
+		<script>
+			const h3 = $('h3');
+			h3.css({'color': 'yellow', 'background-color': 'black' });
+			h3.on('click', function () {
+				$(this).text('나만 클릭했네요!');
+				$(this).css({ color: '#f000ff', 'background-color': '#ffe700' });
+			});
+		</script>
+	</body>
+</html>

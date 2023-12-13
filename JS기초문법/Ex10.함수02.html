@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			console.log('Arrow Function');
+			const getRectArea = (width, height) => {
+				return width * height;
+			};
+
+			console.log(`직사각형 면적 >> ${getRectArea(3, 4)}`);
+
+			console.log('함수표현식');
+			const getRectArea2 = function (width, height) {
+				return width * height;
+			};
+
+			console.log(`직사각형 면적2 >> ${getRectArea2(3, 4)}`);
+
+			console.clear();
+			let num = 10;
+			let number = [10];
+
+			function chData(num) {
+				num = 30;
+			}
+			function chData2(number) {
+				number[0] = 30;
+			}
+			chData(num); // call-by-value
+			chData2(number); // call-by-reference
+
+			console.log(num, number[0]);
+
+
+		</script>
+	</body>
+</html>

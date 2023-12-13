@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>객체 실습 예제</title>
+	</head>
+	<body>
+		<script>
+			const person = {
+				name: '박은선',
+				age: 999,
+				gender: 'female',
+				address: '목포',
+				favMovie: 'Harry Potter',
+				favFood: '치킨',
+				greeting: function () {
+					console.log(
+						`${this.name}님의 나이는 ${this.age}살이고, 성별은 ${this.gender}입니다. 사는 곳은 ${this.address}이고, 좋아하는 영화는 ${this.favMovie}입니다. 좋아하는 음식은 ${this.favFood}입니다.`
+					);
+				},
+			};
+
+      person.greeting()
+		</script>
+	</body>
+</html>

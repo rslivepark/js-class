@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>10. 함수</title>
+	</head>
+	<body>
+		<script>
+			/*Function
+        - 특정 ''기능''을 따로 블록화 시켜 코드를 효율적으로 작성하는 방법
+        
+        - 중복되는 코드 최소화
+        - 실행 코드를 블록화시킴으로써 코드의 가독성 용이
+        -
+      */
+
+			// 함수 선언문
+			// function functionName (para1, para2, ...) {}
+
+			function hello() {
+				console.log('Hello JS');
+				// return 타입 없음 -> 변수에 어떤 타입이든 들어가기 때문에..
+			}
+
+			// 두 정수를 입력받아 합을 반환하는 addNumber( ) 작성
+
+			let num1 = parseInt(prompt('첫번째 정수 입력'));
+			let num2 = parseInt(prompt('두번째 정수 입력'));
+
+			// JS의 매개변수는 var로 받아온다
+			function addNumber(num1, num2) {
+				// function addNumber(var num1, var num2)
+				// let add = num1 + num2
+				// return add
+				return num1 + num2;
+			}
+
+			// var addNumber = 10;
+
+			//함수 hoisting : 함수 선언 위치에 상관없이 어디서든 불러서 사용가능
+			//  - 문제점 : 함수명을 변수명으로도 사용 가능해짐 -> 함수 기능의 안정성 보장x
+			let result = addNumber(num1, num2); // function hoisting
+			console.log(`더한 결과>> ${result}`);
+
+			// 함수 표현식 : 변수에 담아서 사용한다 -> 함수 호이스팅 사용 ㄴㄴ
+			// let, const 키워드 이용해서 함수 생성 (hoisting 문제 방지(함수 안정성 보장o))
+			let addNumber2 = function (num1, num2) {
+				return num1 + num2;
+			};
+
+			const addNumber3 = function (num1, num2) {
+				return num1 + num2;
+			};
+
+			/* Arrow Function 화살표 함수 
+      
+      */
+			const addNumber4 = (num1, num2) => {
+				return num1 + num2;
+			};
+		</script>
+	</body>
+</html>

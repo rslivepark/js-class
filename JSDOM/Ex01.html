@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DOM 1</title>
+	</head>
+	<body>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+		<script>
+      const li = document.querySelector('li')
+      //querySelector : 선택자를 통해서 검색된 태그 중 첫번째 태그만 가져온다
+      //document.querySelector('li').style.color='red'
+      
+      //querySelectorAll :선택자를 통해서 검색된 태그를 배열의 형태로 전부 가져온다. 
+      
+     document.querySelectorAll('li')[0].style.color = 'green'
+     document.querySelectorAll('li')[0].innerText = 'Item 10'
+     document.querySelectorAll('li')[1].style.color = 'green'
+     document.querySelectorAll('li')[2].style.color = 'green'
+
+     console.log(document.querySelector('li'))
+     console.log(document.querySelectorAll('li'))
+    </script>
+	</body>
+</html>

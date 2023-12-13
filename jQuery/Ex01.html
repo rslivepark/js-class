@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 1</title>
+</head>
+<body>
+  <h1>신나는 수요일</h1>
+  <ul>
+    <li>짜장면</li>
+    <li>햄버거</li>
+    <li>핫도그</li>
+  </ul>
+
+  <!-- Import jQuery Library -->
+  <script src="./jquery-3.7.1.min.js"></script>
+
+  <script>
+    // 메뉴 이름을 초록색으로 바꾸기
+    
+    // const liArr = document.querySelectorAll('li')
+    // for(let i = 0; i<liArr.length; i++) {
+    //   liArr[i].style.color='green';
+    // }
+
+    // jQuery Library 사용
+    // $('li') == document.querySelectorAll('li')
+    $('li').css('color','purple')
+
+    /*작동 안 됨 
+      -> 왜?? $('h1')은 jquery 객체이기 때문에 바닐라js 객체처럼 사용할 수 없기 때문에
+      jQuery 객체에 맞는 함수가 존재한다 */
+    $('h1').style.color='red' 
+    
+
+  </script>
+</body>
+</html>

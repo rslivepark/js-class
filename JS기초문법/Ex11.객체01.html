@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>11 객체</title>
+	</head>
+	<body>
+		<script>
+			// 객체 : 현실에 있는 내용을 간접적으로 표현할 수 있는 방법
+			// 데이터와 기능을 한 번에 묶어서 사용한다
+
+			// ex) 휴대폰 : 전화번호, 통신사, 종류, 전화걸기, 문자보내기
+
+      // key-value ==> json 
+      // 객체 만들 때 let보다는 const 키워드 사용하는게 좋음
+			const phone = {
+				number: '01012345678',
+				tel: 'KT',
+				kind: 'smartphone',
+				call: function() {
+					console.log(`${this.number} 전화걸기`);
+				},
+        call2: () => { // console 출력시 this.number undefined로 출력됨
+					console.log(`${this.number} 전화걸기`);
+				},
+				message: function() {
+					console.log('문자보내기');
+				},
+			};
+
+      console.log(phone.number);
+      console.log(phone.tel);
+      console.log(phone.kind);
+      phone.call();
+      phone.message();
+
+      // JS 객체 특징 -> 나중에 데이터를 유동적으로 추가할 수 있음
+      phone.camera = () => {
+        console.log('사진찍기')
+      }
+
+      // phone 객체에 가격을 추가 시켜주세요
+      phone.price = 999999;
+
+      console.log(phone);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DOM 2</title>
+	</head>
+	<body>
+		<p>아래 버튼을 클릭하면 이 텍스트의 색깔과 크기가 변해요!</p>
+		<input type="button" value="이 버튼을 클릭!!" onclick="changeFontColor()" />
+		<script>
+			const p = document.querySelector('p')
+			const btn = document.querySelector('input')
+
+			const changeFontColor = () => {
+			  p.style.fontSize='25px';
+			  p.style.color='tomato'
+			}
+
+			// btn.addEventListener('click', changeFontColor)
+
+		
+		</script>
+	</body>
+</html>

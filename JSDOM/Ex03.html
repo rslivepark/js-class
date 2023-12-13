@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DOM 3</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="shape"></div>
+		<button onclick="clickCircleBtn()">원</button>
+		<button onclick="clickRectBtn()">사각형</button>
+
+		<script>
+      const div = document.getElementById('shape')
+			// const div = document.querySelector('div');
+			// const circleBtn = document.querySelectorAll('button')[0];
+			// const rectBtn = document.querySelectorAll('button')[1];
+
+			// borderRadius = div.style.borderRadius;
+			// width = div.style.width;
+			// height = div.style.height;
+			// backgroundColor = div.style.backgroundColor;
+
+			const clickCircleBtn = () => {
+				div.style.width = '100px';
+				div.style.height = '100px';
+				div.style.borderRadius = '50%';
+				div.style.backgroundColor = 'orange';
+			};
+
+			const clickRectBtn = () => {
+				div.style.borderRadius = '0';
+				
+				// div.style.height = '100px';
+				if (div.style.backgroundColor == 'orange') {
+					div.style.backgroundColor = 'tomato';
+          div.style.width = '250px';
+				} else  {
+					div.style.backgroundColor = 'cornflowerblue';
+          div.style.width = '100px';
+        }
+			};
+
+			// circleBtn.addEventListener('click', clickCircleBtn);
+
+			// rectBtn.addEventListener('click',clickRectBtn);
+		</script>
+	</body>
+</html>

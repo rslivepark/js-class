@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>7. for 반복문</title>
+	</head>
+	<body>
+		<script>
+			// 1에서 3까지 출력하기
+			// console.log();
+			// for(let i = 1; i<=3; i++) {
+			//     console.log(i);
+			// }
+			// console.log(i);
+
+			let startNum = parseInt(prompt('시작 숫자를 입력해주세요'));
+			let endNum = parseInt(prompt('마지막 숫자를 입력해주세요'));
+			let result = 0;
+			// result = 0; 키워드 없으면 var 붙은 걸로 인식한다
+
+			for (let i = startNum; i <= endNum; i++) {
+				result += i;
+			}
+			console.log(`${startNum}부터 ${endNum}까지의 합>> ${result}`);
+		</script>
+	</body>
+</html>

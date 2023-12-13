@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 4</title>
+</head>
+<body>
+  <h1>신나는 화요일</h1>
+  <input id = "inputText" type="text">
+  <button onclick="getData()">텍스트 변경</button>
+
+  <script>
+    // 1.  h1 텍스트 변경 (ex 퇴근하고 싶어요)
+    const h1 = document.getElementsByTagName('h1');
+    const input = document.getElementsByTagName('input')
+
+    // innerHTML : 태그 구조를 다룰 때
+    // innerText : 태그 안의 content(텍스트 영역)만 다룰 때
+    // document.querySelector('h1').innerHTML = "<u>퇴근하고 싶어!!!</u>" 
+    // document.querySelector('h1').innerText = "퇴근하고 싶어!!!" 
+
+
+    // 2. input 태그에 적은 값 가져오기 - value 속성 이용하기 
+    
+    function getData(){
+      let text = document.getElementById('inputText').value
+      console.log(`input 태그에 적은 값 ${text}`)
+      document.querySelector('h1').innerText = text;
+    }
+
+
+  </script>
+</body>
+</html>

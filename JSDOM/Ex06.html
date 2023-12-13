@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DOM 6 - 실습예제 2</title>
+	</head>
+	<body>
+		<h1>랜덤수 맞추기(1~50)</h1>
+		<table>
+			<tr>
+				<td><input type="text" /></td>
+				<td><button onclick="clickBtn()">제출</button></td>
+			</tr>
+		</table>
+		<h2>시도 횟수 : <span></span></h2>
+		<h3></h3>
+
+		<script>
+			const span = document.querySelector('span');
+			const input = document.querySelector('input');
+			const h3 = document.querySelector('h3');
+			let rn = parseInt(Math.random() * 50) + 1;
+
+			console.log(rn);
+
+			let cnt = 0;
+			function clickBtn() {
+				// input 태그에 적은 값을 가져와서 랜덤숫자와 비교 후 같다면 정답입니다 출력
+				if (input.value > rn) {
+					cnt++;
+					span.innerText = cnt;
+          h3.style.color='blue'
+					h3.innerText = 'DOWN!!';
+				} else if (input.value < rn) {
+					cnt++;
+					span.innerText = cnt;
+          h3.style.color='blue'
+					h3.innerText = 'UP!!';
+				} else {
+					cnt = 0;
+          span.innerText = '';
+          h3.innerText = '정답!!';					
+					rn = parseInt(Math.random() * 50) + 1;
+					console.log(rn);
+				}
+				input.value = '';
+				input.focus();
+			}
+		</script>
+	</body>
+</html>
