@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>실습예제 - Todo List</title>
+		<style>
+			li {
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Todo List</h1>
+		<input />
+		<button onclick="addTodo()">추가</button>
+		<button onclick="deleteTodo()">삭제</button>
+
+		<div id="list"></div>
+		<script src="./jquery-3.7.1.min.js"></script>
+		<script>
+			function addPlan() {
+				let inputText = $('input').val();
+				$('div').append(`<h1>${inputText}</h1>`);
+
+				$('input').val('');
+				$('input').focus();
+			}
+
+			// 내가 만든것
+			const input = document.querySelector('input');
+			const list = document.querySelector('#list');
+			const h1 = document.querySelector('h1');
+
+			function addTodo() {
+				const li = document.createElement('li');
+				const h1 = document.createElement('h1');
+
+				list.appendChild(h1);
+				h1.innerText = input.value;
+				console.log(input.value);
+
+				input.value = '';
+				input.focus();
+			}
+
+			function deleteTodo() {
+        console.log('삭제버튼클릭')
+        
+        h1.remove()
+
+				// if (h1.parentNode) {
+				// 	h1.parentNode.remove(h1);
+				// }
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ajax 1</title>
+    <style>
+      tr:first-child>td:first-child {
+        width: 40px;
+        height: auto;
+      }
+
+      tr:first-child>td:nth-child(2) {
+        width: 500px;
+        height: auto;
+      }
+
+      tr:first-child>td:last-child {
+        width: 100px;
+        height: auto;
+      }
+     tr:first-child {
+        text-align: center;
+        font-weight: 800;
+      }
+      tr>td:first-child, tr>td:last-child{
+        text-align: center;
+      }
+    </style>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td><strong>순위</strong></td>
+				<td><strong>영화제목</strong></td>
+				<td><strong>개봉일</strong></td>
+			</tr>
+			</tr>
+		</table>
+    <p></p>
+    <button onclick="getData2()">비동기 요청</button>
+		<input placeholder="검색하고 싶은 날짜 입력">
+
+
+		<script src="./jquery-3.7.1.min.js"></script>
+		<script>
+			// 비동기 통신으로 데이터 가져오기
+			function getData() {
+				$.ajax({
+					// 1. 통신할 URL
+					url: 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101',
+
+					// 2. 통신 성공시 로직
+					success: function (result) {
+						// result: 통신 성공시 서버에서 응답받은 데이터
+						console.log('통신성공!!');
+						console.log(result);
+						console.log(result.boxOfficeResult.boxofficeType);
+
+						// 10개 영화 제목 출력
+            // 영화 순위, 제목, 개봉일 테이블에 추가하기
+						// 영화 순위 rank, 제목 movieNm, 개봉일 openDt
+						let movieArr = result.boxOfficeResult.dailyBoxOfficeList;
+            //html 사용할 때
+           // let movieList ="<tr><td>순위</td><td>영화제목</td><td>개봉일</td></tr>";
+            //append() 사용할 때는
+            let movieList ="";
+
+            // let table = $('table');
+						for (let i = 0; i < movieArr.length; i++) {
+              //.html(추가)
+              movieList += "<tr>"
+
+              movieList+= "<td>"+movieArr[i].rank+"</td>" // 순위
+              movieList+= "<td>"+movieArr[i].movieNm+"</td>"  // 영화제목
+              movieList+= "<td>"+movieArr[i].openDt+"</td>"  // 개봉일
+              
+              movieList += "</tr>"
+              // table.append('<tr><td>' + movieArr[i].rank + '</td>'+'<td>' + movieArr[i].movieNm + '</td>'+'<td>' + movieArr[i].openDt + '</td></tr>');
+							// console.log(movieArr[i].movieNm);
+						}
+            // $('table').html(movieList) // 태그 바꾸기
+            $('table').append(movieList)
+
+					},
+					// 3. 통신 실패시 로직
+					error: function () {
+						console.log('통신실패..');
+					},
+				});
+			}
+						
+			// append() 이용
+    function getData2() {
+				const inputDate = $('input').val()
+				console.log(inputDate)
+				$.ajax({
+					// 비동기로 DB에 접근하고자 할 때
+					// url에 servlet 주소 적어주면 된다!!
+					
+					// url: 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+ inputDate,
+					url: `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=${inputDate}`,
+
+					success: function (result) {
+						console.log('통신성공!!');
+						console.log(result);
+						console.log(result.boxOfficeResult.boxofficeType);
+
+						let movieArr = result.boxOfficeResult.dailyBoxOfficeList;
+
+						for (let i = 0; i < movieArr.length; i++) {
+				
+              //createElement -> 요소 생성
+              const tr = document.createElement('tr')
+
+              const rankTd = document.createElement('td')
+              rankTd.innerText = movieArr[i].rank
+          
+              const nameTd = document.createElement('td')
+              nameTd.innerText = movieArr[i].movieNm
+
+              const oepnTd = document.createElement('td')
+              oepnTd.innerText = movieArr[i].openDt
+
+							// appendChild -> 태그를 구성하는 요소만 추가할 수 있음
+              tr.appendChild(rankTd)
+              tr.appendChild(nameTd)
+              tr.appendChild(oepnTd)
+
+							$('table').append(tr)
+						}
+						// append --> 태그를 구성하는 문자열도 받아서 추가할 수 있음
+          //  $('table').append(movieList)
+					$('input').val("")
+					$('input').focus("")
+
+					},
+					error: function () {
+						console.log('통신실패..');
+					},
+				});
+			}
+    
+			// 실습예제 시간에 내가 짠 코드
+		function getData3() {
+			$.ajax({
+
+					url: 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101',
+
+					success: function (result) {
+
+						console.log('통신성공!!');
+						console.log(result);
+						console.log(result.boxOfficeResult.boxofficeType);
+
+						let movieArr = result.boxOfficeResult.dailyBoxOfficeList;
+   
+            let table = $('table');
+
+						for (let i = 0; i < movieArr.length; i++) {
+       
+              table.append('<tr><td>' + movieArr[i].rank + '</td>'+'<td>' + movieArr[i].movieNm + '</td>'+'<td>' + movieArr[i].openDt + '</td></tr>');
+							console.log(movieArr[i].movieNm);
+						} 
+					},
+					error: function () {
+						console.log('통신실패..');
+					},
+				});
+		}
+    </script>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./moveImgStyle.css">
+
+</head>
+<body>
+    <div id="bg">
+        <img src="./horse.png">
+        <img src="./horse.png" id = 'horse2'>
+        <button class="btn left" onclick="left()">Left</button>
+        <button class="btn jump" onclick="jump()">Jump</button>
+        <button class="btn right" onclick="right()">Right</button>
+    </div>
+    <script src="jquery-3.7.1.min.js"></script> 
+    <script>
+        
+        var target = document.querySelector('img');
+        var player = target.animate([
+            { transform: 'translate(0, 0);'},
+            { transform: 'translate(0, -15px)'},
+            { transform: 'translate(0, -8px)'},
+            { transform: 'translate(0, -4px)'},
+            { transform: 'translate(0, -6px)'},
+            { transform: 'translate(0, -3px)'},
+            { transform: 'translate(0, -6px)'},
+            { transform: 'translate(0, -3px)'},
+            { transform: 'translate(0, -1px)'},
+            { transform: 'translate(0, 0px)'}
+        ],{
+            duration : 1000,
+            delay:700
+        });
+        let x = 0
+        let x1 = 100
+        let y = 200
+        let second = 1
+        let degree = 0
+        let size = 1
+        document.getElementById('horse2').style.right = x1 + 'px'
+        function left() {
+            $(".class").addClass("question_icon_animation");
+            x += 20
+            x1 += 20
+            document.querySelector('img').style.right = x + 'px'
+            document.getElementById('horse2').style.right = x1 + 'px'
+            document.querySelector("img").style.transform = "rotate( 0deg )";
+            //$('img').css.right = "20px"
+        }
+        function right() {
+            x -= 20
+            x1 -= 20
+            if(x <= 0) x = 0
+            //document.querySelector("img").style.transform = "rotate( 180deg )";
+            document.querySelector('img').style.right = x + 'px'
+            document.getElementById('horse2').style.right = x1 + 'px'
+            document.querySelector("img").style.transform = "rotate( 0deg )";
+           
+
+            //$('img').css.right = "20px"
+        }
+        document.addEventListener('keydown', (event) => {
+            if(event.key == 'ArrowLeft') {
+                left()
+            } else if(event.key == 'ArrowRight') {
+                right()
+            } else if(event.key == ' ') {
+                jump()
+            } else if(event.key == 'ArrowDown') {
+                roll()
+            } else if(event.key == 'ArrowUp') {
+                sizeUp()
+            }
+        })
+        function sizeUp() {
+            size += 1
+            if(size >= 15) size = 15
+            document.querySelector('img').style.width = size + '%'
+            document.querySelector('img').style.height = 'auto'
+        }
+        function roll() {
+            degree += 30
+            document.querySelector("img").style.transform = "rotate( " + degree + "deg )";     
+                  
+        }
+        function jump() {
+            setTimeout(function() {
+                y += 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 45deg )";   
+            }, 50);    
+            setTimeout(function() {
+                y += 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 90deg )";    
+            }, 100);
+            setTimeout(function() {
+                y += 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 135deg )";   
+            }, 150);    
+            setTimeout(function() {
+                y += 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 180deg )";    
+            }, 200);
+            setTimeout(function() {
+                y -= 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 225deg )";    
+            }, 250);
+            setTimeout(function() {
+                y -= 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 270deg )";    
+            }, 300);
+            setTimeout(function() {
+                y -= 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 315deg )";    
+            }, 350);
+            setTimeout(function() {
+                y -= 70
+                document.querySelector('img').style.bottom = y + 'px'
+                document.querySelector("img").style.transform = "rotate( 360deg )";    
+            }, 400);
+            
+        }
+    </script>
+</body>
+</html>

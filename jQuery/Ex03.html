@@ -3,22 +3,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>jQuery 3</title>
 	</head>
 	<body>
 		<h1>this 사용해보기</h1>
-		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
-		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
-		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
-		<h3>눌렀을 때, 나만 텍스트를 출력해주세요</h3>
+		<p>눌렀을 때, 나만 텍스트를 출력해주세요</p>
+		<p>눌렀을 때, 나만 텍스트를 출력해주세요</p>
+		<p>눌렀을 때, 나만 텍스트를 출력해주세요</p>
+		<p>눌렀을 때, 나만 텍스트를 출력해주세요</p>
 
 		<script src="./jquery-3.7.1.min.js"></script>
 		<script>
-			const h3 = $('h3');
-			h3.css({'color': 'yellow', 'background-color': 'black' });
-			h3.on('click', function () {
+			const p = $('p');
+			$('p').css({'color': '#ffe700', 'background-color': 'black' });
+			$('p').on('click', function () {
 				$(this).text('나만 클릭했네요!');
-				$(this).css({ color: '#f000ff', 'background-color': '#ffe700' });
+				$(this).css({ color: '#ffe700', 'background-color': 'black' });
 			});
 		</script>
 	</body>
